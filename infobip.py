@@ -1,4 +1,4 @@
-import os
+from decouple import config
 
 from infobip_api_client.api_client import ApiClient, Configuration
 from infobip_api_client.model.sms_advanced_textual_request import SmsAdvancedTextualRequest
@@ -9,7 +9,7 @@ from infobip_api_client.api.send_sms_api import SendSmsApi
 from infobip_api_client.exceptions import ApiException
 from dotenv import load_dotenv
 
-load_dotenv('.env')
+# load_dotenv('.env')
 """
  * Send an sms message by using Infobip API.
  *
@@ -24,12 +24,12 @@ load_dotenv('.env')
  * See Readme file for details.
 """
 
-BASE_URL = os.getenv('INFOBIP_BASE_URL')
-API_KEY = os.getenv('INFOBIP_API_KEY')
+BASE_URL = config('INFOBIP_BASE_URL')
+API_KEY = config('INFOBIP_API_KEY')
 
 SENDER = "InfoSMS"
-RECIPIENT = "998919791999"
-MESSAGE_TEXT = "Salom dunyo"
+RECIPIENT = "+998936252712"
+MESSAGE_TEXT = "assalom aleykum, this is a just test "
 
 client_config = Configuration(
     host=BASE_URL,
